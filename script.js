@@ -1,8 +1,29 @@
-const button = document.getElementById('colorBtn');
-const colors = ['#4361ee', '#7209b7', '#f72585', '#4cc9f0', '#06d6a0'];
-let colorIndex = 0;
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
 
-button.addEventListener('click', () => {
-    colorIndex = (colorIndex + 1) % colors.length;
-    button.style.background = colors[colorIndex];
+// Subtle nav background on scroll
+const nav = document.querySelector('.nav');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > 50) {
+        nav.style.boxShadow = '0 1px 3px rgba(13, 27, 42, 0.08)';
+    } else {
+        nav.style.boxShadow = 'none';
+    }
+
+    lastScroll = currentScroll;
 });
