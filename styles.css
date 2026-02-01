@@ -153,6 +153,47 @@ section {
     padding: 6rem 0;
     background: linear-gradient(180deg, #f8f9fa 0%, #fafafa 100%);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-plane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-plane-icon {
+    position: absolute;
+    top: 30%;
+    font-size: 16rem;
+    color: #0d1b2a;
+    opacity: 0.08;
+    animation: fly 5s linear infinite;
+    line-height: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes fly {
+    0% {
+        left: -10%;
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+    100% {
+        left: 110%;
+        transform: translateY(0);
+    }
 }
 
 .hero h1 {
@@ -432,6 +473,78 @@ section {
     font-size: 0.875rem;
 }
 
+/* Work Page */
+.work-header {
+    padding: 5rem 0 3rem;
+    background: linear-gradient(180deg, #f8f9fa 0%, #fafafa 100%);
+    text-align: center;
+}
+
+.work-header-subtitle {
+    font-size: 1.25rem;
+    color: #415a77;
+    margin-top: 1rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.work-section {
+    padding: 4rem 0;
+    background: #fafafa;
+}
+
+.work-section-alt {
+    background: #fff;
+}
+
+.work-project-header {
+    margin-bottom: 2rem;
+}
+
+.work-project-header h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 0.75rem;
+}
+
+.work-project-header p {
+    font-size: 1.0625rem;
+    max-width: 600px;
+    line-height: 1.7;
+}
+
+.work-card-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #1b4965;
+    background: #e8f4f8;
+    padding: 0.25rem 0.625rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+}
+
+.work-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.work-gallery img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(13, 27, 42, 0.08);
+}
+
+.nav-link-active {
+    color: #0d1b2a;
+    font-weight: 600;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
     .section-grid {
@@ -451,6 +564,10 @@ section {
     .founders-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
+    }
+
+    .work-gallery {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -476,5 +593,9 @@ section {
     .nav-cta {
         padding: 0.4rem 0.75rem;
         font-size: 0.8rem;
+    }
+
+    .work-gallery {
+        grid-template-columns: 1fr;
     }
 }
