@@ -27,3 +27,16 @@ window.addEventListener('scroll', () => {
 
     lastScroll = currentScroll;
 });
+
+// Video mute toggle
+const muteBtn = document.getElementById('mute-toggle');
+const featuredVideo = document.getElementById('featured-video');
+
+if (muteBtn && featuredVideo) {
+    muteBtn.addEventListener('click', () => {
+        featuredVideo.muted = !featuredVideo.muted;
+        muteBtn.querySelector('.icon-muted').style.display = featuredVideo.muted ? '' : 'none';
+        muteBtn.querySelector('.icon-unmuted').style.display = featuredVideo.muted ? 'none' : '';
+        muteBtn.setAttribute('aria-label', featuredVideo.muted ? 'Unmute video' : 'Mute video');
+    });
+}
